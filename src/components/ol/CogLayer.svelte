@@ -5,7 +5,7 @@
     import { getContextMap } from "./context.svelte.ts";
     
     
-    let { url, zIndex = 0, visible = true, opacity = 1, loading = false } = $props();
+    let { url, zIndex = 0, visible = true, opacity, loading = false } = $props();
     let map = getContextMap();
     
 
@@ -23,9 +23,20 @@
       zIndex,
       opacity,
     });
-    
+
+
+    map.instance.addLayer(cogLayer);
+
     $effect(() => {
-      map.instance?.addLayer(cogLayer);
+        console.log('adding cog layer');
+        cogLayer.setOpacity(opacity)
+
+        return () => {
+            if (!map.instance) {
+                console.log('cleaning up cog layer')
+                map.instance?.removeLayer(cogLayer);
+            }
+        }
     });
   
   </script>

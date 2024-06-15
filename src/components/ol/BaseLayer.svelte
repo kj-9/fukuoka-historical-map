@@ -22,7 +22,7 @@
       //style: createMapboxStreetsV6Style(Style, Fill, Stroke, Icon, Text),
     });
  
-    $effect(() => {
-      map.instance.addLayer(protomaps);
-    });
+    map.instance.addLayer(protomaps);
   </script>
+
+
