@@ -1,3 +1,10 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.svelte",
+    "src/**/*.astro",
+    "src/**/*.mdx",
+    "src/**/*.md"
+  ]
 }
