@@ -26,6 +26,3 @@
       map.instance.addLayer(protomaps);
     });
   </script>
-
-
-<div></div>
