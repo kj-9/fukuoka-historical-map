@@ -1,7 +1,7 @@
 import { setContext, getContext } from "svelte";
 import { Map } from "ol";
 
-function createMap(instance: Map) {
+function createMap(instance: Map | null) {
   let _instance = $state(instance);
   return {
     get instance() {
