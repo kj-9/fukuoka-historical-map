@@ -4,6 +4,10 @@
     import { useGeographic } from "ol/proj";
     import View from "ol/View";
     import Attribution from "ol/control/Attribution";
+    import {
+        DragRotateAndZoom,
+        defaults as defaultInteractions,
+    } from 'ol/interaction.js';
 
     import {initContextMap} from "./context.svelte.ts"
 
@@ -17,14 +21,13 @@
     const attribution = new Attribution({});
     const instance = new Map({
         target: mapId,
-        layers: [],
+        interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
         view: new View({
         center,
         zoom,
         minZoom,
         maxZoom,
         //extent: [103.130035, 0.822573, 104.801331, 1.724593],
-        enableRotation: false,
         }),
         controls: [attribution],
     });
