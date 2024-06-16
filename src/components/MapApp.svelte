@@ -19,7 +19,7 @@
     }
 
 
-    let opacity= $state(0.2);
+    let opacity= $state(0.8);
 </script>
 
 
