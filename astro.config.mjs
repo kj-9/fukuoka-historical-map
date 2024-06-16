@@ -7,6 +7,6 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind(), svelte()],
   // for github pages
-  site: 'https://kj-9.github.io',
-  base: '/fukuoka-historical-map',
+  site: "https://kj-9.github.io",
+  base: "/fukuoka-historical-map",
 });
