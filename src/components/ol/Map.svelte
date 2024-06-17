@@ -2,8 +2,9 @@
     import "ol/ol.css";
     import Map from "ol/Map";
     import { useGeographic } from "ol/proj";
-    import View from "ol/View";    import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer"; 
-　　　import Rotate from 'ol/control/Rotate.js';
+    import View from "ol/View";
+    import Attribution from "ol/control/Attribution";
+　　 import Rotate from 'ol/control/Rotate.js';
     import {
         DragRotateAndZoom,
         defaults as defaultInteractions,
@@ -20,7 +21,7 @@
     useGeographic();
     const instance = new Map({
         target: mapId,
-        controls: [new Rotate()],
+        controls: [new Attribution({}), new Rotate()],
         interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
         view: new View({
         center,
