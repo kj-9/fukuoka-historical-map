@@ -2,8 +2,8 @@
     import "ol/ol.css";
     import Map from "ol/Map";
     import { useGeographic } from "ol/proj";
-    import View from "ol/View";
-    import Attribution from "ol/control/Attribution";
+    import View from "ol/View";    import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer"; 
+　　　import Rotate from 'ol/control/Rotate.js';
     import {
         DragRotateAndZoom,
         defaults as defaultInteractions,
@@ -18,9 +18,9 @@
 
     $effect(() => {
     useGeographic();
-    const attribution = new Attribution({});
     const instance = new Map({
         target: mapId,
+        controls: [new Rotate()],
         interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
         view: new View({
         center,
@@ -29,7 +29,6 @@
         maxZoom,
         //extent: [103.130035, 0.822573, 104.801331, 1.724593],
         }),
-        controls: [attribution],
     });
 
     map.instance = instance;
