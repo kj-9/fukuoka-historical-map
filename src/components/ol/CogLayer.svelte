@@ -1,43 +1,38 @@
 <script lang="ts">
-    import WebGLTile from "ol/layer/WebGLTile";
-    import GeoTIFF from "ol/source/GeoTIFF";
+  import WebGLTile from "ol/layer/WebGLTile";
+  import GeoTIFF from "ol/source/GeoTIFF";
 
-    import { getContextMap } from "./context.svelte.ts";
-    
-    
-    let { url, zIndex = 0, visible = true, opacity, loading = false } = $props();
-    let map = getContextMap();
-    
+  import { getContextMap } from "./context.svelte.ts";
 
-    const cogSource = new GeoTIFF({
-      sources: [
-        {
-          url: url,
-        },
-      ],
-    });
-  
-    const cogLayer = new WebGLTile({
-      source: cogSource,
-      visible,
-      zIndex,
-      opacity,
-    });
+  let { url, zIndex = 0, visible = true, opacity, loading = false } = $props();
+  let map = getContextMap();
 
+  const cogSource = new GeoTIFF({
+    sources: [
+      {
+        url: url,
+      },
+    ],
+  });
 
-    map.instance.addLayer(cogLayer);
+  const cogLayer = new WebGLTile({
+    source: cogSource,
+    visible,
+    zIndex,
+    opacity,
+  });
 
-    $effect(() => {
-        console.log('adding cog layer');
-        cogLayer.setOpacity(opacity)
+  map.instance.addLayer(cogLayer);
 
-        return () => {
-            if (!map.instance) {
-                console.log('cleaning up cog layer')
-                map.instance?.removeLayer(cogLayer);
-            }
-        }
-    });
-  
-  </script>
-  
+  $effect(() => {
+    console.debug("adding cog layer");
+    cogLayer.setOpacity(opacity);
+
+    return () => {
+      if (!map.instance) {
+        console.debug("cleaning up cog layer");
+        map.instance?.removeLayer(cogLayer);
+      }
+    };
+  });
+</script>
