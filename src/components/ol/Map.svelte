@@ -36,7 +36,7 @@
   });
 </script>
 
-<div id={mapId} class="h-screen">
+<div id={mapId} class="h-dvh relative">
   {#if map?.instance}
     <slot />
   {/if}

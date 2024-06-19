@@ -11,16 +11,19 @@
 </script>
 
 <Map center={CENTER} rotation={ROTATION} zoom={12} minZoom={2} maxZoom={18}>
-  <div class="absolute top-5 left-5 z-10 flex items-center gap-3">
-    <RotateControl autoHide={true} />
-    <input
-      bind:value={opacity}
-      type="range"
-      min="0"
-      max="1"
-      step="0.1"
-      class="range range-sm"
-    />
+  <!-- use sm:bottom-auto to cancel bottom-x -->
+  <div class="z-10 absolute bottom-5 left-5 sm:top-5 sm:bottom-auto">
+    <div class="flex items-center gap-3">
+      <RotateControl autoHide={true} />
+      <input
+        bind:value={opacity}
+        type="range"
+        min="0"
+        max="1"
+        step="0.1"
+        class="range range-sm"
+      />
+    </div>
   </div>
 
   <BaseLayer />
