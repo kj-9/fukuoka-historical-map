@@ -25,7 +25,6 @@
   map.instance.addLayer(cogLayer);
 
   $effect(() => {
-    console.debug("adding cog layer");
     cogLayer.setOpacity(opacity);
 
     return () => {
