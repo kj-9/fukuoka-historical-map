@@ -2,7 +2,7 @@
   import WebGLTile from "ol/layer/WebGLTile";
   import GeoTIFF from "ol/source/GeoTIFF";
 
-  import { getContextMap } from "./context.svelte.ts";
+  import { getContextMap } from "../context.svelte.ts";
 
   let { url, zIndex = 0, visible = true, opacity, loading = false } = $props();
   let map = getContextMap();

@@ -3,7 +3,7 @@
   import VectorTileLayer from "ol/layer/VectorTile";
   import VectorTileSource from "ol/source/VectorTile";
 
-  import { getContextMap } from "./context.svelte.ts";
+  import { getContextMap } from "../context.svelte.ts";
 
   import { applyStyle } from "ol-mapbox-style";
 
