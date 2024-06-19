@@ -4,6 +4,7 @@
   import CogControl from "./ol/CogControl.svelte";
   import RotateControl from "./ol/RotateControl.svelte";
   import SetViewControl from "./ol/SetViewControl.svelte";
+  import GeoLocationControl from "./ol/GeoLocationControl.svelte";
 
   const CENTER = [130.4030020104645, 33.591078733935646]; // fukuoka
 
@@ -25,6 +26,7 @@
   <!-- use sm:bottom-auto to cancel bottom-x -->
   <div class="z-10 absolute bottom-5 left-5 sm:top-5 sm:bottom-auto">
     <div class="flex items-center gap-3">
+      <GeoLocationControl />
       <SetViewControl center={CENTER} rotation={ROTATION} zoom={INITIAL_ZOOM} />
       <RotateControl autoHide={true} />
       <CogControl url={COG_URL} initialOpacity={INITIAL_OPACITY} />
