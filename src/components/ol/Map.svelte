@@ -20,7 +20,7 @@
     useGeographic();
     const instance = new Map({
       target: mapId,
-      controls: [new Attribution({})],
+      controls: [new Attribution({ collapsible: false })],
       interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
       view: new View({
         center,
