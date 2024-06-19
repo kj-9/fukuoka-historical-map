@@ -10,7 +10,7 @@
   const cogSource = new GeoTIFF({
     sources: [
       {
-        url: url,
+        url,
       },
     ],
   });
