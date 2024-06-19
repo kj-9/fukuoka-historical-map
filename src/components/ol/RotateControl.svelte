@@ -1,5 +1,4 @@
 <script>
-  import Rotate from "ol/control/Rotate";
   import { getContextMap } from "./context.svelte.ts";
   import { easeOut } from "ol/easing.js";
 
@@ -33,10 +32,14 @@
     }
   }
 
-  let transform = "";
+  const rotationToTransform = (rotation) => {
+    return "rotate(" + rotation + "rad)";
+  };
+
+  let transform = rotationToTransform(initailRotation);
   map.instance.getView().on(["change:rotation"], (e) => {
     const rotation = e.target.getRotation();
-    transform = "rotate(" + rotation + "rad)";
+    transform = rotationToTransform(rotation);
   });
 </script>
 
