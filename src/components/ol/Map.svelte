@@ -11,7 +11,7 @@
 
   import { initContextMap } from "./context.svelte.ts";
 
-  let { center, rotation, zoom, minZoom = 0, maxZoom = 28 } = $props();
+  let { center, rotation, zoom, minZoom = 0, maxZoom = 28, children } = $props();
   let map = initContextMap();
 
   const mapId = "olmap";
@@ -38,6 +38,6 @@
 
 <div id={mapId} class="h-dvh relative">
   {#if map?.instance}
-    <slot />
+    {@render children()}
   {/if}
 </div>
