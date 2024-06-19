@@ -4,7 +4,7 @@
 
   import { getContextMap } from "../context.svelte.ts";
 
-  let { url, zIndex = 0, visible = true, opacity, loading = false } = $props();
+  let { url, zIndex = 0, visible = true, opacity } = $props();
   let map = getContextMap();
 
   const cogSource = new GeoTIFF({
