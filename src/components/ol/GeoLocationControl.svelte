@@ -18,20 +18,6 @@
     //projection: map.instance.getView().getProjection(),
   });
 
-  navigator.permissions
-    .query({ name: "geolocation" })
-    .then((permissionStatus) => {
-      permissionStatus.onchange = () => {
-        if (permissionStatus.state == "granted") {
-          map.instance.getView().animate({
-            center: geolocation.getPosition(),
-            duration: 300,
-            zoom: 16,
-          });
-        }
-      };
-    });
-
   // handle geolocation error.
   geolocation.on("error", function (error) {
     console.error("Geolocation error:", error);
@@ -60,11 +46,6 @@
   geolocation.on("change:position", function () {
     const coordinates = geolocation.getPosition();
     positionFeature.setGeometry(coordinates ? new Point(coordinates) : null);
-    map.instance.getView().animate({
-      center: geolocation.getPosition(),
-      duration: 300,
-      zoom: 16,
-    });
   });
 
   new VectorLayer({
@@ -81,6 +62,16 @@
         name: "geolocation",
       });
       geolocation.setTracking(true);
+
+      const position = geolocation.getPosition();
+
+      if (position) {
+        map.instance.getView().animate({
+          center: geolocation.getPosition(),
+          duration: 300,
+          zoom: 16,
+        });
+      }
     } else {
       geolocation.setTracking(false);
       accuracyFeature.setGeometry(null);
